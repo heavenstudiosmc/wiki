@@ -4,9 +4,40 @@
   <meta charset="UTF-8">
   <title>Heaven Studios - Documentación</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Documentación oficial de los plugins de Heaven Studios">
+  <meta name="description" content="Documentación oficial de los plugins de Minecraft de Heaven Studios">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌌</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+  <style>
+    :root {
+      --theme-color: #7c6cf0;
+      --base-font-size: 15px;
+      --content-max-width: 62em;
+
+      --cover-background-color: radial-gradient(ellipse at 40% 10%, #2b2353 0%, #0f0e1a 60%);
+      --cover-heading-color: #b9aef7;
+      --cover-button-border: 1px solid #7c6cf0;
+      --cover-button-color: #fff;
+      --cover-button-primary-background: #7c6cf0;
+      --cover-button-primary-color: #fff;
+
+      --sidebar-name-color: #b9aef7;
+      --sidebar-nav-link-color--active: #b9aef7;
+      --sidebar-nav-link-border-color--active: #7c6cf0;
+      --sidebar-nav-pagelink-background-color: rgba(124, 108, 240, 0.12);
+
+      --link-color: #9d8ff5;
+      --link-color--hover: #c4baf9;
+      --heading-h2-border-color: rgba(124, 108, 240, 0.35);
+      --code-theme-background: #1b1930;
+      --table-row-odd-background: rgba(124, 108, 240, 0.05);
+      --blockquote-border-color: #7c6cf0;
+      --search-input-background-color: #1b1930;
+      --search-result-heading-color: #b9aef7;
+    }
+    .sidebar-nav strong { color: #b9aef7; letter-spacing: 0.03em; }
+    .markdown-section code { border-radius: 4px; }
+  </style>
 </head>
 <body>
   <div id="app">Cargando documentación...</div>
@@ -14,18 +45,39 @@
     window.$docsify = {
       name: '🌌 Heaven Studios',
       loadSidebar: true,
-      subMaxLevel: 3,
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
+      coverpage: true,
+      onlyCover: false,
+      subMaxLevel: 2,
       auto2top: true,
+      executeScript: false,
       search: {
-        placeholder: 'Buscar...',
+        placeholder: '🔍 Buscar...',
         noData: 'Sin resultados',
         depth: 6
+      },
+      pagination: {
+        previousText: 'Anterior',
+        nextText: 'Siguiente',
+        crossChapter: true,
+        crossChapterText: true
+      },
+      copyCode: {
+        buttonText: 'Copiar',
+        errorText: 'Error',
+        successText: '¡Copiado!'
       }
     };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2/dist/docsify-copy-code.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
 </body>
 </html>
