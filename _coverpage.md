@@ -1,4 +1,6 @@
-# 🌌 Heaven Studios
+![logo](heavenstudios.webp)
+
+# Heaven Studios
 
 > Documentación oficial de nuestros plugins de Minecraft
 
@@ -6,5 +8,4 @@
 - 🔮 Habilidades especiales, eventos y economía integrada
 - 📖 Guías paso a paso, comandos, permisos y placeholders
 
-[🚀 Primeros pasos](heavenrandomkits/primeros-pasos.md)
-[🌌 HeavenRandomKits](heavenrandomkits/)
+[📚 Ver documentación](heavenrandomkits/)
