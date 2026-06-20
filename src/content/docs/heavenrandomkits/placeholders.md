@@ -1,3 +1,7 @@
+---
+title: Placeholders
+---
+
 # 📊 Placeholders
 
 Si tienes **PlaceholderAPI** instalado, el plugin registra automáticamente la expansión `randomkits`. Úsalos en scoreboards, tablists, hologramas, menús de otros plugins, etc.

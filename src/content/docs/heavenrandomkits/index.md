@@ -1,3 +1,7 @@
+---
+title: Overview
+---
+
 # 🌌 HeavenRandomKits
 
 > Plugin de **KitPvP dinámico** para servidores Paper 1.21+: kits aleatorios, arenas con rotación automática de mapas, habilidades especiales, rachas, recompensas por cabeza y el evento **Kill The King**.

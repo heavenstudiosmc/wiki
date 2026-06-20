@@ -1,3 +1,7 @@
+---
+title: License Claiming
+---
+
 # 🔑 License Claiming
 
 To protect our plugins and ensure you receive the best support, we use a licensing system.

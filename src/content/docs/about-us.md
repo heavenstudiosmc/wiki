@@ -1,3 +1,7 @@
+---
+title: About Us
+---
+
 # 👥 About Us
 
 Welcome to **Heaven Studios**! We are a dedicated team of developers focused on creating premium, high-quality plugins for Minecraft servers.

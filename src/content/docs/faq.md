@@ -1,3 +1,7 @@
+---
+title: FAQ
+---
+
 # ❓ Frequently Asked Questions (FAQ)
 
 ### Which Java version do I need?

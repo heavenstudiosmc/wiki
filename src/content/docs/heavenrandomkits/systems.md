@@ -1,3 +1,7 @@
+---
+title: Systems
+---
+
 # ⚙️ Sistemas del plugin
 
 Explicación en profundidad de cada sistema y cómo se relacionan entre sí.

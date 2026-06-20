@@ -1,3 +1,7 @@
+---
+title: Permissions
+---
+
 # 🔐 Permisos
 
 Todos los nodos de permisos del plugin, listos para asignar con LuckPerms o tu gestor de permisos favorito.

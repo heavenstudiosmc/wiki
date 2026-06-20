@@ -1,3 +1,7 @@
+---
+title: Commands
+---
+
 # 🎮 Comandos
 
 Referencia completa, extraída directamente del código del plugin. Los argumentos entre `<>` son obligatorios; entre `[]`, opcionales.

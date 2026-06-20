@@ -1,3 +1,7 @@
+---
+title: Plugin Catalog
+---
+
 # 📦 Plugin Catalog
 
 Here is the complete list of plugins developed by **Heaven Studios**.

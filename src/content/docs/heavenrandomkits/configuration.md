@@ -1,3 +1,7 @@
+---
+title: Configuration
+---
+
 # 🛠️ Configuración
 
 El plugin genera tres archivos en `plugins/HeavenRandomKits/`. Después de editar cualquiera, aplica los cambios con `/hrk reload` (no hace falta reiniciar).
