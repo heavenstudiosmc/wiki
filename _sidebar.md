@@ -1,4 +1,4 @@
-- **🏠 General**
+- **General**
   - [Home](/)
   - [About Us](about-us.md)
   - [License Claiming](license.md)
