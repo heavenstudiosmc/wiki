@@ -18,7 +18,6 @@ export default defineConfig({
           items: [
             { label: 'Home', link: '/' },
             { label: 'About Us', link: '/about-us/' },
-            { label: 'Plugin Catalog', link: '/catalog/' },
             { label: 'FAQ', link: '/faq/' }
           ],
         },
