@@ -25,50 +25,50 @@ Referencia completa, extraída directamente del código del plugin. Los argument
 
 ## 🛡️ Comandos de administración
 
-### `/arena` (alias `/arenas`) — requiere `randomkits.admin`
+### `/arena` (alias `/arenas`)
 
-| Subcomando | Descripción |
-|---|---|
-| `/arena setup` | Muestra la guía de configuración de arenas dentro del juego. |
-| `/arena create <nombre>` | Registra una nueva arena. |
-| `/arena wand` | Te entrega la herramienta de selección (click izq. = Pos1, click der. = Pos2). |
-| `/arena setbounds <nombre>` | Guarda tu selección de wand como límites de la arena. |
-| `/arena addspawn <nombre>` | Añade un punto de aparición en tu posición actual (puedes añadir varios). |
-| `/arena clearspawns <nombre>` | Elimina todos los puntos de aparición de la arena. |
-| `/arena save <nombre>` | Guarda los datos y el schematic de la arena (vía FastAsyncWorldEdit). |
-| `/arena enable <nombre>` | Habilita la arena y la añade a la rotación. |
-| `/arena disable <nombre>` | Desactiva la arena y la saca de la rotación. |
-| `/arena delete <nombre>` | Elimina la arena por completo. |
-| `/arena restart <nombre>` | Reinicia y vuelve a pegar el schematic de una arena específica. |
-| `/arena forcerotate` | Fuerza la rotación de arena inmediatamente. |
-| `/arena join` | Te envía a la arena activa en rotación. |
-| `/arena vote` | Abre el menú de votación (equivalente admin de `/votaciones`). |
-| `/arena tprotation <nombre> <true/false>` | Activa/desactiva el teletransporte de jugadores cuando esa arena entra en rotación. |
-| `/arena tpworld <mundo>` | Te teletransporta a un mundo específico (útil para ir al mundo de arenas). |
+| Subcomando | Descripción | Permiso |
+|---|---|---|
+| `/arena setup` | Muestra la guía de configuración de arenas dentro del juego. | `randomkits.command.arenas.setup` |
+| `/arena create <nombre>` | Registra una nueva arena. | `randomkits.command.arenas.create` |
+| `/arena wand` | Te entrega la herramienta de selección (click izq. = Pos1, click der. = Pos2). | `randomkits.command.arenas.wand` |
+| `/arena setbounds <nombre>` | Guarda tu selección de wand como límites de la arena. | `randomkits.command.arenas.setbounds` |
+| `/arena addspawn <nombre>` | Añade un punto de aparición en tu posición actual (puedes añadir varios). | `randomkits.command.arenas.addspawn` |
+| `/arena clearspawns <nombre>` | Elimina todos los puntos de aparición de la arena. | `randomkits.command.arenas.clearspawns` |
+| `/arena save <nombre>` | Guarda los datos y el schematic de la arena (vía FastAsyncWorldEdit). | `randomkits.command.arenas.save` |
+| `/arena enable <nombre>` | Habilita la arena y la añade a la rotación. | `randomkits.command.arenas.enable` |
+| `/arena disable <nombre>` | Desactiva la arena y la saca de la rotación. | `randomkits.command.arenas.disable` |
+| `/arena delete <nombre>` | Elimina la arena por completo. | `randomkits.command.arenas.delete` |
+| `/arena restart <nombre>` | Reinicia y vuelve a pegar el schematic de una arena específica. | `randomkits.command.arenas.restart` |
+| `/arena forcerotate` | Fuerza la rotación de arena inmediatamente. | `randomkits.command.arenas.forcerotate` |
+| `/arena join` | Te envía a la arena activa en rotación. | `randomkits.command.arenas.join` |
+| `/arena vote` | Abre el menú de votación (equivalente admin de `/votaciones`). | — |
+| `/arena tprotation <nombre> <true/false>` | Activa/desactiva el teletransporte de jugadores cuando esa arena entra en rotación. | `randomkits.command.arenas.tprotation` |
+| `/arena tpworld <mundo>` | Te teletransporta a un mundo específico (útil para ir al mundo de arenas). | `randomkits.command.arenas.tpworld` |
 
 ### `/kit` — gestión de kits
 
 | Subcomando | Descripción | Permiso |
 |---|---|---|
-| `/kit create <nombre> <tipo>` | Crea un kit (`normal`, `random` o `event`). | `randomkits.kit.admin` |
-| `/kit edit <nombre>` | Abre el editor visual de inventario del kit. | `randomkits.kit.admin` |
-| `/kit setprice <nombre> <precio>` | Establece el precio de un kit (acepta decimales; -1 usa el precio global). | `randomkits.kit.admin` |
-| `/kit settings <nombre>` | Abre el panel de propiedades: nombre visible, permiso, cooldown, icono, slot y sonido. | `randomkits.kit.admin` |
-| `/kit give <kit> <jugador>` | Entrega un kit directamente a un jugador. | `randomkits.kit.admin` |
-| `/kit delete <nombre>` | Elimina un kit. | `randomkits.kit.admin` |
+| `/kit create <nombre> <tipo>` | Crea un kit (`normal`, `random` o `event`). | `randomkits.command.kits.create` |
+| `/kit edit <nombre>` | Abre el editor visual de inventario del kit. | `randomkits.command.kits.edit` |
+| `/kit setprice <nombre> <precio>` | Establece el precio de un kit (acepta decimales; -1 usa el precio global). | `randomkits.command.kits.setprice` |
+| `/kit settings <nombre>` | Abre el panel de propiedades: nombre visible, permiso, cooldown, icono, slot y sonido. | `randomkits.command.kits.settings` |
+| `/kit give <kit> <jugador>` | Entrega un kit directamente a un jugador. | `randomkits.command.kits.give` |
+| `/kit delete <nombre>` | Elimina un kit. | `randomkits.command.kits.delete` |
 
-### `/ktk` (alias `/killtheking`) — requiere `randomkits.admin`
+### `/ktk` (alias `/killtheking`)
 
-| Subcomando | Descripción |
-|---|---|
-| `/ktk start <jugador>` | Inicia el evento Kill The King nombrando Rey a ese jugador. |
-| `/ktk stop` | Detiene el evento en curso forzosamente. |
+| Subcomando | Descripción | Permiso |
+|---|---|---|
+| `/ktk start <jugador>` | Inicia el evento Kill The King nombrando Rey a ese jugador. | `randomkits.command.ktk.start` |
+| `/ktk stop` | Detiene el evento en curso forzosamente. | `randomkits.command.ktk.stop` |
 
-### `/abilities` (alias `/ability`) — requiere `randomkits.admin`
+### `/abilities` (alias `/ability`)
 
-| Subcomando | Descripción |
-|---|---|
-| `/abilities give <jugador> <habilidad> [cantidad]` | Entrega el ítem de una habilidad. IDs válidos: `FIREBALL`, `TNT`, `GRAPPLING_HOOK`, `THOR_HAMMER`, `SPEED`, `STRENGTH`, `MEDKIT`, `SWITCH_BALL`, `WEB_SHOOTER`, `BUBBLE`, `WEB_CUTTER`, `GUILLOTINE`. |
+| Subcomando | Descripción | Permiso |
+|---|---|---|
+| `/abilities give <jugador> <habilidad> [cantidad]` | Entrega el ítem de una habilidad. IDs válidos: `FIREBALL`, `TNT`, `GRAPPLING_HOOK`, `THOR_HAMMER`, `SPEED`, `STRENGTH`, `MEDKIT`, `SWITCH_BALL`, `WEB_SHOOTER`, `BUBBLE`, `WEB_CUTTER`, `GUILLOTINE`. | `randomkits.command.abilities.give` |
 
 ### `/coins`
 
@@ -85,5 +85,5 @@ Referencia completa, extraída directamente del código del plugin. Los argument
 | Comando | Descripción | Permiso |
 |---|---|---|
 | `/setspawn` | Establece el spawn global en tu posición actual. | `randomkits.admin.setspawn` |
-| `/hrk version` (alias `/heavenrandomkits`, `/rk`, `/randomkits`) | Muestra la versión y autor del plugin. | `randomkits.admin` |
-| `/hrk reload` | Recarga `config.yml`, `language.yml` y `abilities.yml`. | `randomkits.admin` |
+| `/hrk version` (alias `/heavenrandomkits`, `/rk`, `/randomkits`) | Muestra la versión y autor del plugin. | `randomkits.command.version` |
+| `/hrk reload` | Recarga `config.yml`, `language.yml` y `abilities.yml`. | `randomkits.command.reload` |

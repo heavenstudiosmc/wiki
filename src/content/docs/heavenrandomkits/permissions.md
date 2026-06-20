@@ -10,10 +10,44 @@ Todos los nodos de permisos del plugin, listos para asignar con LuckPerms o tu g
 
 | Permiso | Otorga acceso a |
 |---|---|
-| `randomkits.admin` | Toda la administración: `/arena` (todos los subcomandos), `/ktk`, `/abilities`, `/hrk version` y `/hrk reload`. |
 | `randomkits.admin.setspawn` | `/setspawn` — establecer el spawn global. |
 | `randomkits.admin.coins` | Gestionar coins: `/coins add`, `/coins remove`, `/coins set` y consultar saldos ajenos. |
-| `randomkits.kit.admin` | Crear, editar, configurar, cambiar precio, entregar y borrar kits (`/kit create`, `edit`, `setprice`, `settings`, `give`, `delete`). |
+| `randomkits.command.version` | `/hrk version` |
+| `randomkits.command.reload` | `/hrk reload` |
+| `randomkits.command.ktk.start` | `/ktk start` |
+| `randomkits.command.ktk.stop` | `/ktk stop` |
+| `randomkits.command.abilities.give` | `/abilities give` |
+
+### Permisos de Arena
+
+| Permiso | Otorga acceso a |
+|---|---|
+| `randomkits.command.arenas.setup` | `/arena setup` |
+| `randomkits.command.arenas.create` | `/arena create` |
+| `randomkits.command.arenas.delete` | `/arena delete` |
+| `randomkits.command.arenas.wand` | `/arena wand` |
+| `randomkits.command.arenas.setbounds` | `/arena setbounds` |
+| `randomkits.command.arenas.addspawn` | `/arena addspawn` |
+| `randomkits.command.arenas.clearspawns` | `/arena clearspawns` |
+| `randomkits.command.arenas.save` | `/arena save` |
+| `randomkits.command.arenas.enable` | `/arena enable` |
+| `randomkits.command.arenas.disable` | `/arena disable` |
+| `randomkits.command.arenas.restart` | `/arena restart` |
+| `randomkits.command.arenas.forcerotate` | `/arena forcerotate` |
+| `randomkits.command.arenas.tprotation` | `/arena tprotation` |
+| `randomkits.command.arenas.join` | `/arena join` |
+| `randomkits.command.arenas.tpworld` | `/arena tpworld` |
+
+### Permisos de Kits (Staff)
+
+| Permiso | Otorga acceso a |
+|---|---|
+| `randomkits.command.kits.create` | `/kit create` |
+| `randomkits.command.kits.delete` | `/kit delete` |
+| `randomkits.command.kits.edit` | `/kit edit` |
+| `randomkits.command.kits.settings` | `/kit settings` |
+| `randomkits.command.kits.setprice` | `/kit setprice` |
+| `randomkits.command.kits.give` | `/kit give` |
 
 ## Jugadores
 
@@ -52,8 +86,7 @@ lp group vip permission set randomkits.kits.menu true
 lp group vip permission set randomkits.vip true
 
 # Staff: administración completa
-lp group admin permission set randomkits.admin true
-lp group admin permission set randomkits.kit.admin true
 lp group admin permission set randomkits.admin.coins true
 lp group admin permission set randomkits.admin.setspawn true
+lp group admin permission set randomkits.command.* true
 ```
