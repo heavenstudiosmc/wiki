@@ -236,6 +236,9 @@
         animation: none !important; opacity: 1 !important; transform: none !important;
       }
     }
+    body.home-page main {
+      display: none !important;
+    }
   </style>
 </head>
 <body>
@@ -248,7 +251,7 @@
         '/.*/_sidebar.md': '/_sidebar.md'
       },
       coverpage: true,
-      onlyCover: false,
+      onlyCover: true,
       subMaxLevel: 2,
       auto2top: true,
       executeScript: false,
@@ -267,7 +270,18 @@
         buttonText: 'Copiar',
         errorText: 'Error',
         successText: '¡Copiado!'
-      }
+      },
+      plugins: [
+        function(hook, vm) {
+          hook.doneEach(function() {
+            if (vm.route.path === '/') {
+              document.body.classList.add('home-page');
+            } else {
+              document.body.classList.remove('home-page');
+            }
+          });
+        }
+      ]
     };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
