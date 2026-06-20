@@ -52,6 +52,7 @@ Referencia completa, extraída directamente del código del plugin. Los argument
 |---|---|---|
 | `/kit create <nombre> <tipo>` | Crea un kit (`normal`, `random` o `event`). | `randomkits.kit.admin` |
 | `/kit edit <nombre>` | Abre el editor visual de inventario del kit. | `randomkits.kit.admin` |
+| `/kit setprice <nombre> <precio>` | Establece el precio de un kit (acepta decimales; -1 usa el precio global). | `randomkits.kit.admin` |
 | `/kit settings <nombre>` | Abre el panel de propiedades: nombre visible, permiso, cooldown, icono, slot y sonido. | `randomkits.kit.admin` |
 | `/kit give <kit> <jugador>` | Entrega un kit directamente a un jugador. | `randomkits.kit.admin` |
 | `/kit delete <nombre>` | Elimina un kit. | `randomkits.kit.admin` |
@@ -69,11 +70,12 @@ Referencia completa, extraída directamente del código del plugin. Los argument
 |---|---|
 | `/abilities give <jugador> <habilidad> [cantidad]` | Entrega el ítem de una habilidad. IDs válidos: `FIREBALL`, `TNT`, `GRAPPLING_HOOK`, `THOR_HAMMER`, `SPEED`, `STRENGTH`, `MEDKIT`, `SWITCH_BALL`, `WEB_SHOOTER`, `BUBBLE`, `WEB_CUTTER`, `GUILLOTINE`. |
 
-### `/coins` — requiere `randomkits.command.coins`
+### `/coins`
 
 | Subcomando | Descripción | Permiso |
 |---|---|---|
-| `/coins <jugador>` | Consulta el saldo de coins de un jugador. | `randomkits.admin.coins` |
+| `/coins` | Muestra tu saldo actual. Si tienes permisos de admin, muestra la lista de comandos. | — |
+| `/coins <jugador>` | Consulta el saldo de coins de un jugador (o el tuyo propio). | `randomkits.admin.coins` |
 | `/coins add <jugador> <cantidad>` | Añade coins. | `randomkits.admin.coins` |
 | `/coins remove <jugador> <cantidad>` | Quita coins. | `randomkits.admin.coins` |
 | `/coins set <jugador> <cantidad>` | Fija el saldo exacto. | `randomkits.admin.coins` |

@@ -13,7 +13,7 @@ Todos los nodos de permisos del plugin, listos para asignar con LuckPerms o tu g
 | `randomkits.admin` | Toda la administración: `/arena` (todos los subcomandos), `/ktk`, `/abilities`, `/hrk version` y `/hrk reload`. |
 | `randomkits.admin.setspawn` | `/setspawn` — establecer el spawn global. |
 | `randomkits.admin.coins` | Gestionar coins: `/coins add`, `/coins remove`, `/coins set` y consultar saldos ajenos. |
-| `randomkits.kit.admin` | Crear, editar, configurar, entregar y borrar kits (`/kit create`, `edit`, `settings`, `give`, `delete`). |
+| `randomkits.kit.admin` | Crear, editar, configurar, cambiar precio, entregar y borrar kits (`/kit create`, `edit`, `setprice`, `settings`, `give`, `delete`). |
 
 ## Jugadores
 
@@ -22,8 +22,7 @@ Todos los nodos de permisos del plugin, listos para asignar con LuckPerms o tu g
 | `randomkits.kit` | El comando base `/kit` (necesario para **cualquier** subcomando de kit, incluido `/kit random`). |
 | `randomkits.kits.menu` | `/kit menu` — el menú de kits VIP. |
 | `randomkits.kit.list` | `/kit list <tipo>` — listar kits por tipo. |
-| `randomkits.command.coins` | El comando base `/coins`. |
-| *(sin permiso)* | `/join`, `/spawn`, `/kits`, `/votaciones`, `/killstreaks`, `/bounties`, `/bounty` son públicos. |
+| *(sin permiso)* | `/coins` (para ver tu saldo), `/join`, `/spawn`, `/kits`, `/votaciones`, `/killstreaks`, `/bounties`, `/bounty` son públicos. |
 
 ## Rangos VIP
 
@@ -57,5 +56,4 @@ lp group admin permission set randomkits.admin true
 lp group admin permission set randomkits.kit.admin true
 lp group admin permission set randomkits.admin.coins true
 lp group admin permission set randomkits.admin.setspawn true
-lp group admin permission set randomkits.command.coins true
 ```

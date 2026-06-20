@@ -73,7 +73,7 @@ RANDOM_KITS:
   GIVE_ON_JOIN_ENABLED: false        # Kit gratis en cada ingreso
   GIVE_ON_RESPAWN_ENABLED: true      # Kit gratis al reaparecer
   GIVE_ON_ARENA_JOIN_ENABLED: false  # Kit gratis al entrar a la arena
-  MANUAL_PRICE: 100                  # Precio en coins del kit manual (/kit random)
+  MANUAL_PRICE: 100                  # Precio global por defecto en coins. Puedes establecer precios individuales con /kit setprice.
 ```
 
 ### Evento Kill The King
