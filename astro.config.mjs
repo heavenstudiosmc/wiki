@@ -9,6 +9,10 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Heaven Studios',
+      favicon: '/favicon.png',
+      logo: {
+        src: './src/assets/heavenstudios.webp',
+      },
       social: [
         { icon: 'discord', label: 'Discord', href: 'https://discord.heavenstudios.site' }
       ],
