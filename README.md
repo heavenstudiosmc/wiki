@@ -1,17 +1,17 @@
-# Heaven Studios — Documentación
+# Heaven Studios — Documentation
 
-Bienvenido a la documentación oficial de los plugins de **Heaven Studios** para servidores de Minecraft (Paper 1.21+).
+Welcome to the official documentation for **Heaven Studios** Minecraft plugins (Paper 1.21+).
 
-## 📦 Nuestros plugins
+## 📦 Our Plugins
 
-| Plugin | Descripción | Estado |
+| Plugin | Description | Status |
 |--------|-------------|--------|
-| [🌌 HeavenRandomKits](heavenrandomkits/) | KitPvP completo: kits aleatorios, arenas rotativas con votación, 12 habilidades especiales, killstreaks, bounties, evento Kill The King, economía interna y StatTrak. | ✅ Disponible |
+| [🌌 HeavenRandomKits](heavenrandomkits/) | Full KitPvP experience: random kits, rotating arenas with voting, 12 special abilities, killstreaks, bounties, Kill The King event, internal economy, and StatTrak. | ✅ Available |
 
-> Más plugins próximamente.
+> More plugins coming soon.
 
-## 🧭 ¿Por dónde empezar?
+## 🧭 Where to start?
 
-- ¿Acabas de comprar **HeavenRandomKits**? Empieza por la [guía de instalación](heavenrandomkits/) y luego sigue [Primeros pasos](heavenrandomkits/primeros-pasos.md).
-- ¿Buscas un comando o permiso concreto? Usa el **buscador** (arriba a la izquierda) o ve directo a [Comandos](heavenrandomkits/comandos.md) y [Permisos](heavenrandomkits/permisos.md).
-- ¿Configurando tu scoreboard? Aquí están todos los [Placeholders](heavenrandomkits/placeholders.md).
+- Just bought **HeavenRandomKits**? Start with the [Introduction](heavenrandomkits/) and then follow the [Getting Started](heavenrandomkits/primeros-pasos.md) section.
+- Looking for a specific command or permission? Use the **search bar** (top left) or head straight to [Commands](heavenrandomkits/comandos.md) and [Permissions](heavenrandomkits/permisos.md).
+- Setting up your scoreboard? Here are all the [Placeholders](heavenrandomkits/placeholders.md).
