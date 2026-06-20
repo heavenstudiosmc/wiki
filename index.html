@@ -42,6 +42,32 @@
       max-width: 170px;
       filter: drop-shadow(0 6px 24px rgba(61, 90, 148, 0.55));
     }
+    /* Footer de paginación (Anterior / Siguiente) */
+    .docsify-pagination-container {
+      border-top: 1px solid rgba(61, 90, 148, 0.35);
+      margin-top: 3em;
+      padding-top: 1.2em;
+    }
+    .pagination-item-label {
+      color: #84a3d8;
+      font-size: 0.85em;
+      opacity: 1;
+    }
+    .pagination-item-label svg { stroke: #84a3d8; }
+    .pagination-item-title {
+      color: #a8c0e8;
+      font-size: 1.25em;
+      opacity: 1;
+    }
+    .pagination-item:hover .pagination-item-title {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .pagination-item:hover .pagination-item-label,
+    .pagination-item:hover .pagination-item-label svg {
+      color: #aac1e8;
+      stroke: #aac1e8;
+    }
   </style>
 </head>
 <body>
@@ -67,7 +93,7 @@
         previousText: 'Anterior',
         nextText: 'Siguiente',
         crossChapter: true,
-        crossChapterText: true
+        crossChapterText: false
       },
       copyCode: {
         buttonText: 'Copiar',
