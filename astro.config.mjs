@@ -11,6 +11,11 @@ export default defineConfig({
       title: 'Heaven Studios',
       favicon: '/favicon.png',
       customCss: ['./src/styles/celestial.css'],
+      components: {
+        // Default to the celestial dark theme when no preference is stored.
+        ThemeProvider: './src/components/ThemeProvider.astro',
+        ThemeSelect: './src/components/ThemeSelect.astro',
+      },
       head: [
         {
           tag: 'link',
