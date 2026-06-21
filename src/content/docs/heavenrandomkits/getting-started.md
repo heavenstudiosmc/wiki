@@ -28,7 +28,7 @@ Before installing the plugin, ensure your server meets the following requirement
    ```yaml
    LICENSE: "YOUR-LICENSE-KEY-HERE"
    ```
-7. Restart the server or run `/randomkits reload`. Check your console to ensure the license is authenticated successfully.
+7. Restart the server. Check your console to ensure the license is authenticated successfully.
 
 > [!NOTE]
 > If your console prints "Invalid or expired license", please double-check that you copied the exact key provided by our Discord bot.
@@ -55,7 +55,7 @@ Create the arena data profile by running:
 
 ### Step 3: Define the Arena Bounds
 You need to define the physical area of your arena. This allows the plugin to save it as a schematic and prevents players from escaping (if `ESCAPE_PREVENTION` is enabled).
-1. Run `/arena wand` to receive the selection tool (an axe).
+1. Run `/arena wand` to receive the selection tool.
 2. Left-click one corner of your arena, and Right-click the opposite corner (just like WorldEdit).
 3. Once selected, run:
 ```bash
