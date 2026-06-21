@@ -1,205 +1,70 @@
 ---
-title: Configuration
+title: Configuration Files
+description: Learn how to configure HeavenRandomKits settings, messages, and menus.
 ---
 
-# 🛠️ Configuración
+# ⚙️ Configuration Files
 
-El plugin genera tres archivos en `plugins/HeavenRandomKits/`. Después de editar cualquiera, aplica los cambios con `/hrk reload` (no hace falta reiniciar).
+HeavenRandomKits generates several files in its `plugins/HeavenRandomKits/` folder. The plugin is highly customizable, allowing you to tweak almost every aspect of the gameplay, economy, and visuals.
 
-## 📄 config.yml
+## `config.yml`
 
-### Licencia y base de datos
+This is the core configuration file. Here you can find the general settings for the plugin.
 
-```yaml
-LICENSE: "TU-CLAVE-DE-LICENCIA"   # Sin licencia válida el plugin se desactiva
+### Key Sections:
+* **License**: Your authentication key.
+* **Database Settings**: Configure the auto-save interval for user data.
+* **Arena Settings**: Adjust the `ROTATION_TIME` (how often maps change) and toggle `ESCAPE_PREVENTION` (the bedrock cage). You can also control vanilla world rules like weather and daylight cycles.
+* **VIP Settings**: Configure the weight of votes for different VIP ranks in the voting menu (`VIP_VOTES`) and coin multipliers (`VIP_COIN_MULTIPLIERS`).
+* **Random Kits Toggles**: Choose when players get random kits automatically (e.g., `GIVE_ON_RESPAWN_ENABLED`, `GIVE_ON_FIRST_JOIN_ENABLED`).
+* **Systems Toggles**: Enable or disable major features like `KING_EVENT`, `KILLSTREAKS`, `STAT_TRAK`, and `BOUNTIES`.
 
-DATABASE_SETTINGS:
-  AUTO_SAVE_ENABLED: true    # Autoguardado periódico de datos de usuarios
-  AUTO_SAVE_INTERVAL: 5      # Cada cuántos MINUTOS guardar
-```
-
-### Spawn
-
-```yaml
-SPAWN_SETTINGS:
-  TELEPORT_ON_JOIN: false        # TP al spawn global en cada ingreso
-  TELEPORT_ON_FIRST_JOIN: true   # TP solo en el primer ingreso
-```
-
-### Arenas
-
-```yaml
-ARENA_SETTINGS:
-  ROTATION_TIME: 2                 # MINUTOS entre rotaciones de mapa
-  WORLD_NAME: "arenas"             # Mundo dedicado a las arenas
-  ROTATION_TITLES_ENABLED: true    # Título en pantalla al anunciar el nuevo mapa
-  NO_FALL:
-    ENABLED: true                  # Inmunidad a daño de caída tras entrar/rotar
-    DURATION: 10                   # Segundos de inmunidad
-
-LIGHTNING_DEATH:
-  ENABLED: true    # Rayo visual/sonoro al morir un jugador en la arena
-```
-
-### Rangos VIP
-
-Define los nodos de permiso y sus beneficios. Puedes renombrar los rangos, cambiar los nodos y añadir tantos como quieras.
-
-```yaml
-VIP_VOTES:           # Peso del voto en la votación de mapas
-  VIP:
-    PERMISSION: "randomkits.vip"
-    WEIGHT: 5
-  MVP+:
-    PERMISSION: "randomkits.mvp+"
-    WEIGHT: 20
-
-VIP_COIN_MULTIPLIERS:    # Multiplicador de coins por bajas y bounties
-  VIP:
-    PERMISSION: "randomkits.vip"
-    MULTIPLIER: 1.25     # 10 coins -> 12 coins
-  MVP+:
-    PERMISSION: "randomkits.mvp+"
-    MULTIPLIER: 2.5
-```
-
-> Si un jugador tiene varios nodos, se usa el peso más alto.
-
-### Kits aleatorios
-
-```yaml
-RANDOM_KITS:
-  GIVE_ON_FIRST_JOIN_ENABLED: true   # Kit gratis en el primer ingreso
-  GIVE_ON_JOIN_ENABLED: false        # Kit gratis en cada ingreso
-  GIVE_ON_RESPAWN_ENABLED: true      # Kit gratis al reaparecer
-  GIVE_ON_ARENA_JOIN_ENABLED: false  # Kit gratis al entrar a la arena
-  MANUAL_PRICE: 100                  # Precio global por defecto en coins. Puedes establecer precios individuales con /kit setprice.
-```
-
-### Evento Kill The King
-
-```yaml
-KING_EVENT:
-  ENABLED: true
-  KING_KIT_NAME: "king"               # Kit (tipo EVENT) que recibe el Rey
-  START_SOUND: "ENDERDRAGON_GROWL"    # Sonido global al iniciar ("" para desactivar)
-  BLOCKED_COMMANDS:                   # Comandos prohibidos para el Rey
-    - "/spawn"
-    - "/tpa"
-  KILLER_REWARDS:                     # Comandos de consola al matar al Rey
-    - "eco give <player> 1000"        # <player> = nombre del asesino
-    - "broadcast &e<player> ha derrotado al Rey!"
-```
-
-### Killstreaks y recompensas por baja
-
-```yaml
-KILLSTREAKS:
-  ENABLED: true
-  REWARDS:
-    '3':                  # Al llegar EXACTAMENTE a 3 bajas seguidas
-      COINS: 100          # Coins (con multiplicador VIP)
-      COMMANDS:           # Comandos de consola, <player> = el jugador
-        - "broadcast &e<player> &flleva una racha de &c3 bajas&f!"
-        - "give <player> golden_apple 2"
-
-KILL_REWARDS:             # Recompensa por CADA baja
-  ENABLED: true
-  COINS: 10
-  COMMANDS:
-    - ""                  # Comandos opcionales por baja
-```
-
-> Puedes añadir todas las fases de racha que quieras (`'20'`, `'30'`…). El número es la cantidad **exacta** de bajas.
-
-### StatTrak
-
-```yaml
-STAT_TRAK:
-  ENABLED: true
-  KILLS_FORMAT: "&6&lKills&7: &b<kills>"                       # Contador en el lore
-  KILL_STRING: "&e<player> &ffue asesinado por &e<killer> &6<date>"  # Historial
-  TRACKING_ITEMS:          # Materiales que registran kills
-    - "DIAMOND_SWORD"
-    - "NETHERITE_SWORD"
-```
-
-### Bounties
-
-```yaml
-BOUNTIES:
-  ENABLED: true
-  RANDOM_AUTO_BOUNTY:        # El servidor pone precio a jugadores al azar
-    ENABLED: true
-    INTERVAL_SECONDS: 300    # Cada cuánto ocurre el evento
-    MIN_PLAYERS_ONLINE: 10   # Mínimo de jugadores conectados
-    MAX_PLAYERS_AT_ONCE: 4   # Cuántos jugadores marcar por evento
-    COINS_REWARD: 50         # Recompensa añadida a cada cabeza
-    ACCUMULATIVE: false      # false = no elegir a quien ya tiene bounty
-  KILLSTREAK_AUTO_BOUNTY:    # Bounty automática a los que están en racha
-    ENABLED: true
-    STREAKS:
-      '5': 200               # racha : coins añadidas a su cabeza
-      '10': 500
-      '15': 1000
-```
+> [!TIP]
+> Whenever you modify `config.yml`, you can run `/randomkits reload` in-game or from the console to apply the changes without restarting the server.
 
 ---
 
-## 📄 abilities.yml
+## `language.yml`
 
-Configura las 12 habilidades. Estructura común a todas:
+Every single message sent by the plugin can be modified or translated in this file. It supports standard Minecraft color codes (`&c`, `&l`, etc.) and hex colors.
 
-```yaml
-ABILITIES_SETTINGS:
-  GLOBAL_COOLDOWN_ENABLED: true   # Bloquear TODAS las habilidades al usar una
-  GLOBAL_COOLDOWN: 2              # Segundos del bloqueo global
-
-ABILITIES:
-  FIREBALL:
-    ENABLED: true            # Desactivar una habilidad individualmente
-    ITEM:
-      MATERIAL: "FIRE_CHARGE"
-      NAME: "&6Bola de Fuego"
-      LORE:
-        - "&7Haz click derecho para lanzar"
-    COOLDOWN: 5              # Segundos entre usos de ESTA habilidad
-    SOUND:
-      ENABLED: true
-      NAME: "entity.ghast.shoot"
-      VOLUME: 1.0
-      PITCH: 1.0
-```
-
-Parámetros específicos por habilidad:
-
-| Habilidad | Parámetros propios |
-|---|---|
-| `FIREBALL` | `YIELD` (radio de explosión), `VELOCITY_MULTIPLIER` |
-| `TNT` | `AUTO_IGNITE_ON_PLACE`, `THROWABLE`, `EXPLODE_ON_IMPACT`, `FUSE_TICKS`, `VELOCITY_MULTIPLIER` |
-| `GRAPPLING_HOOK` | `VELOCITY_MULTIPLIER`, `MAX_USES` (-1 = infinito) |
-| `THOR_HAMMER` | `MAX_USES` |
-| `SPEED` / `STRENGTH` | `DURATION` (segundos del efecto) |
-| `MEDKIT` | `HEAL_AMOUNT` (en medios corazones; 8.0 = 4 ❤) |
-| `WEB_SHOOTER` / `WEB_CUTTER` | `RADIUS`; `WEB_CUTTER` además `MAX_USES` |
-| `BUBBLE` | `RADIUS` (esfera de bedrock), `DURATION` |
-| `GUILLOTINE` | `SUCCESS_CHANCE` (%), `REMAINING_HEALTH` (vida restante), `MAX_USES` |
+If you are translating the plugin into another language, ensure you preserve the exact variable placeholders like `<player>` or `<arena>` so the plugin can still inject the correct information.
 
 ---
 
-## 📄 language.yml
+## `abilities.yml`
 
-Contiene **todos** los textos del plugin: prefijos, mensajes de chat, títulos de menús, lore de botones, mensajes de error y los textos de los placeholders vacíos (`PLACEHOLDER_NONE_*`). Soporta códigos de color `&` — puedes traducir o re-brandear el plugin por completo sin tocar código.
+This file handles the 12 custom Special Abilities included in the plugin. You can toggle each ability individually, change their display item, adjust their cooldowns, and modify their specific stats.
+
+**Available Abilities and their Tweaks:**
+1. **FIREBALL**: Adjust explosion yield and velocity.
+2. **TNT**: Toggle auto-ignite and fuse ticks.
+3. **GRAPPLING_HOOK**: Change maximum uses.
+4. **THOR_HAMMER**: Summon lightning bolts on click.
+5. **SPEED**: Duration of the Speed effect.
+6. **STRENGTH**: Duration of the Strength effect.
+7. **MEDKIT**: Adjust the amount of health restored.
+8. **SWITCH_BALL**: Swap positions with hit enemies.
+9. **WEB_SHOOTER**: Change the radius of the spawned cobweb trap.
+10. **BUBBLE**: Create a bedrock shield. Adjust duration and radius.
+11. **WEB_CUTTER**: Remove nearby webs.
+12. **GUILLOTINE**: A high-risk, high-reward item. Configure the `SUCCESS_CHANCE` (default 50%) to leave the enemy at 1 heart, or yourself if it fails!
 
 ---
 
-## ❓ Solución de problemas
+## `menus/` Directory
 
-| Síntoma | Causa probable |
-|---|---|
-| El plugin se desactiva al arrancar con `License: INVALID` | Clave incorrecta en `LICENSE`, o superaste el límite de IPs de tu licencia. |
-| El plugin no aparece / error de carga | Falta **FastAsyncWorldEdit** (dependencia obligatoria), o el servidor no es Paper 1.21+. |
-| La arena no rota | Solo hay una arena habilitada, o ninguna tiene schematic guardado (`/arena save`). |
-| Los jugadores no reciben kit al reaparecer | `GIVE_ON_RESPAWN_ENABLED: false`, o no existe ningún kit de tipo `RANDOM`. |
-| `/kit random` dice que faltan coins | El uso manual cuesta `MANUAL_PRICE` (100 por defecto); las entregas automáticas son gratis. |
-| Los placeholders se muestran sin reemplazar | Falta PlaceholderAPI, o el plugin que los muestra no llama a PAPI. |
+This directory contains YAML files responsible for the Graphical User Interfaces (GUIs). 
+
+While the core functionality of the menus is hardcoded (like slots required for kits or arenas), you can customize:
+* The title of the menus.
+* The items used for background fillers (e.g., changing the glass pane color).
+* The lore and names of buttons (like the "Next Page" or "Previous Page" buttons).
+
+---
+
+## `database/` Directory
+
+*Please do not modify files in this directory manually.* 
+
+This folder contains local SQLite or JSON data where the plugin stores player statistics (kills, deaths, highest killstreak, coins) and arena profile data. If you need to edit a player's coins, use the in-game admin commands instead of modifying the database files directly to prevent corruption.

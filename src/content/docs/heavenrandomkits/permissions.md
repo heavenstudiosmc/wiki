@@ -1,92 +1,54 @@
 ---
 title: Permissions
+description: Complete list of all permissions available in HeavenRandomKits.
 ---
 
-# 🔐 Permisos
+# 🔐 Permissions
 
-Todos los nodos de permisos del plugin, listos para asignar con LuckPerms o tu gestor de permisos favorito.
+Here is the exhaustive list of permissions used in HeavenRandomKits. You should assign these using a permission plugin like LuckPerms.
 
-## Administración
+## 🛠️ Administrative Permissions
 
-| Permiso | Otorga acceso a |
-|---|---|
-| `randomkits.admin.setspawn` | `/setspawn` — establecer el spawn global. |
-| `randomkits.admin.coins` | Gestionar coins: `/coins add`, `/coins remove`, `/coins set` y consultar saldos ajenos. |
-| `randomkits.command.version` | `/hrk version` |
-| `randomkits.command.reload` | `/hrk reload` |
-| `randomkits.command.ktk.start` | `/ktk start` |
-| `randomkits.command.ktk.stop` | `/ktk stop` |
-| `randomkits.command.abilities.give` | `/abilities give` |
+These permissions should only be given to Server Administrators, Owners, or Managers.
 
-### Permisos de Arena
+* `randomkits.admin` - The master permission. Grants access to the general `/randomkits` commands (like reload) and most admin base commands.
+* `randomkits.admin.setspawn` - Allows the use of `/setspawn` to define the global hub location.
+* `randomkits.admin.coins` - Allows editing player balances using `/coins give/set/remove`.
+* `randomkits.kit.admin` - Grants access to `/kit create` and the `/kits admin` editor menu.
 
-| Permiso | Otorga acceso a |
-|---|---|
-| `randomkits.command.arenas.setup` | `/arena setup` |
-| `randomkits.command.arenas.create` | `/arena create` |
-| `randomkits.command.arenas.delete` | `/arena delete` |
-| `randomkits.command.arenas.wand` | `/arena wand` |
-| `randomkits.command.arenas.setbounds` | `/arena setbounds` |
-| `randomkits.command.arenas.addspawn` | `/arena addspawn` |
-| `randomkits.command.arenas.clearspawns` | `/arena clearspawns` |
-| `randomkits.command.arenas.save` | `/arena save` |
-| `randomkits.command.arenas.enable` | `/arena enable` |
-| `randomkits.command.arenas.disable` | `/arena disable` |
-| `randomkits.command.arenas.restart` | `/arena restart` |
-| `randomkits.command.arenas.forcerotate` | `/arena forcerotate` |
-| `randomkits.command.arenas.tprotation` | `/arena tprotation` |
-| `randomkits.command.arenas.join` | `/arena join` |
-| `randomkits.command.arenas.tpworld` | `/arena tpworld` |
+*(Note: The `/arena` management subcommands, the `/king` force commands, and the `/bounty` admin commands inherit their security checks from the main `randomkits.admin` permission).*
 
-### Permisos de Kits (Staff)
+---
 
-| Permiso | Otorga acceso a |
-|---|---|
-| `randomkits.command.kits.create` | `/kit create` |
-| `randomkits.command.kits.delete` | `/kit delete` |
-| `randomkits.command.kits.edit` | `/kit edit` |
-| `randomkits.command.kits.settings` | `/kit settings` |
-| `randomkits.command.kits.setprice` | `/kit setprice` |
-| `randomkits.command.kits.give` | `/kit give` |
+## 🎮 VIP & Player Perks
 
-## Jugadores
+These permissions are meant to be given to your players through VIP ranks (e.g., VIP, MVP, Elite). They grant advantages in voting and economy multipliers.
 
-| Permiso | Otorga acceso a |
-|---|---|
-| `randomkits.kit` | El comando base `/kit` (necesario para **cualquier** subcomando de kit, incluido `/kit random`). |
-| `randomkits.kits.menu` | `/kit menu` — el menú de kits VIP. |
-| `randomkits.kit.list` | `/kit list <tipo>` — listar kits por tipo. |
-| *(sin permiso)* | `/coins` (para ver tu saldo), `/join`, `/spawn`, `/kits`, `/votaciones`, `/killstreaks`, `/bounties`, `/bounty` son públicos. |
+### 🗳️ Arena Voting Weight
+The default setup in `config.yml` provides the following permissions to multiply a player's vote value during the arena rotation phase:
 
-## Rangos VIP
+* `randomkits.vip` - Vote counts as **5** points.
+* `randomkits.vip+` - Vote counts as **10** points.
+* `randomkits.mvp` - Vote counts as **15** points.
+* `randomkits.mvp+` - Vote counts as **20** points.
 
-Estos nodos no dan comandos: dan **beneficios automáticos** definidos en `config.yml` (peso de voto en la votación de mapas y multiplicador de coins por bajas y bounties). Tanto los nodos como sus valores son personalizables.
+> [!TIP]
+> You can create completely custom permission nodes (e.g., `my.server.donator`) in the `VIP_VOTES` section of `config.yml`. The plugin will automatically hook into them!
 
-| Permiso | Peso de voto | Multiplicador de coins |
-|---|---|---|
-| `randomkits.vip` | 5 | ×1.25 |
-| `randomkits.vip+` | 10 | ×1.5 |
-| `randomkits.mvp` | 15 | ×2.0 |
-| `randomkits.mvp+` | 20 | ×2.5 |
+### 💰 Coin Multipliers
+These permissions boost the amount of Coins earned when getting a kill or claiming a bounty:
 
-> 💡 Si un jugador tiene varios rangos, se aplica el **peso más alto** (votos) y su multiplicador correspondiente. Un jugador sin rango vota con peso 1 y recibe coins sin multiplicar.
+* `randomkits.vip` - x1.25 Coins
+* `randomkits.vip+` - x1.5 Coins
+* `randomkits.mvp` - x2.0 Coins
+* `randomkits.mvp+` - x2.5 Coins
 
-## Permisos por kit
+---
 
-Cada kit puede exigir un permiso propio, configurable desde `/kit settings <kit>` (opción *Permiso requerido*). El nodo es de texto libre — por ejemplo, podrías crear `randomkits.kit.guerrero` y asignárselo solo a tus VIPs.
+## 🎲 Kit-Specific Permissions
 
-## Ejemplo con LuckPerms
+You can lock certain random kits so they can only be rolled by players with a specific rank.
 
-```bash
-# Jugador estándar: acceso a kits aleatorios
-lp group default permission set randomkits.kit true
-
-# Rango VIP: menú de kits + beneficios VIP
-lp group vip permission set randomkits.kits.menu true
-lp group vip permission set randomkits.vip true
-
-# Staff: administración completa
-lp group admin permission set randomkits.admin.coins true
-lp group admin permission set randomkits.admin.setspawn true
-lp group admin permission set randomkits.command.* true
-```
+To do this, open the Kit Editor (`/kits admin`), click on a kit, and assign a custom permission string to it (e.g., `randomkits.kits.warrior`). 
+* Only players who have the permission `randomkits.kits.warrior` will be able to receive that kit when they respawn. 
+* Players without the permission will only roll kits that do not have a permission requirement.

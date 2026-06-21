@@ -1,89 +1,61 @@
 ---
 title: Commands
+description: Complete list of all player and admin commands in HeavenRandomKits.
 ---
 
-# 🎮 Comandos
+# 💻 Commands
 
-Referencia completa, extraída directamente del código del plugin. Los argumentos entre `<>` son obligatorios; entre `[]`, opcionales.
+Below is the complete list of commands available in HeavenRandomKits. The plugin features a dynamic help system that will only show the commands a player has permission to use.
 
-## 🙋 Comandos de jugador
+## Player Commands
 
-| Comando | Descripción | Permiso |
-|---|---|---|
-| `/join` | Te teletransporta a la arena activa en rotación. | — |
-| `/spawn` | Te teletransporta al spawn global del servidor. | — |
-| `/kits` | Abre el menú de selección de kits. | — |
-| `/votaciones` (alias `/votar`) | Abre el menú de votación del siguiente mapa. | — |
-| `/killstreaks` (alias `/topkillstreaks`, `/rachas`) | Abre el menú con el top de rachas. | — |
-| `/bounties` | Abre el menú con las recompensas activas. | — |
-| `/bounty <jugador> <cantidad>` | Pone una recompensa por la cabeza de otro jugador, pagando con tus propias coins. No puedes ponerte recompensa a ti mismo. | — |
-| `/kit random` | Te entrega un kit aleatorio de tipo `RANDOM`. Cuesta `MANUAL_PRICE` coins (por defecto 100). | `randomkits.kit` |
-| `/kit menu` | Abre el menú de kits VIP. | `randomkits.kit` + `randomkits.kits.menu` |
-| `/kit list <tipo>` | Lista los kits registrados por tipo (`normal`, `random`, `event`). | `randomkits.kit` + `randomkits.kit.list` |
+These commands are intended for regular players and do not require administrative permissions (unless specified).
 
-> ⚠️ Todos los subcomandos de `/kit` requieren además el permiso base `randomkits.kit`. Si quieres que los jugadores usen `/kit random`, dales ese nodo.
+* `/join` or `/arena join` - Teleports the player to the active arena and gives them a random kit (if enabled in config).
+* `/spawn` - Teleports the player back to the global spawn.
+* `/arena vote` - Opens the Arena Voting Menu to vote for the next map.
+* `/bounties` - Opens the top bounties menu.
+* `/bounty check [player]` - Checks the current bounty on your head or a specific player's head.
+* `/killstreaks` - Opens the top killstreaks menu.
+* `/coins` - Checks your current coin balance.
 
-## 🛡️ Comandos de administración
+---
 
-### `/arena` (alias `/arenas`)
+## Admin Commands
 
-| Subcomando | Descripción | Permiso |
-|---|---|---|
-| `/arena setup` | Muestra la guía de configuración de arenas dentro del juego. | `randomkits.command.arenas.setup` |
-| `/arena create <nombre>` | Registra una nueva arena. | `randomkits.command.arenas.create` |
-| `/arena wand` | Te entrega la herramienta de selección (click izq. = Pos1, click der. = Pos2). | `randomkits.command.arenas.wand` |
-| `/arena setbounds <nombre>` | Guarda tu selección de wand como límites de la arena. | `randomkits.command.arenas.setbounds` |
-| `/arena addspawn <nombre>` | Añade un punto de aparición en tu posición actual (puedes añadir varios). | `randomkits.command.arenas.addspawn` |
-| `/arena clearspawns <nombre>` | Elimina todos los puntos de aparición de la arena. | `randomkits.command.arenas.clearspawns` |
-| `/arena save <nombre>` | Guarda los datos y el schematic de la arena (vía FastAsyncWorldEdit). | `randomkits.command.arenas.save` |
-| `/arena enable <nombre>` | Habilita la arena y la añade a la rotación. | `randomkits.command.arenas.enable` |
-| `/arena disable <nombre>` | Desactiva la arena y la saca de la rotación. | `randomkits.command.arenas.disable` |
-| `/arena delete <nombre>` | Elimina la arena por completo. | `randomkits.command.arenas.delete` |
-| `/arena restart <nombre>` | Reinicia y vuelve a pegar el schematic de una arena específica. | `randomkits.command.arenas.restart` |
-| `/arena forcerotate` | Fuerza la rotación de arena inmediatamente. | `randomkits.command.arenas.forcerotate` |
-| `/arena join` | Te envía a la arena activa en rotación. | `randomkits.command.arenas.join` |
-| `/arena vote` | Abre el menú de votación (equivalente admin de `/votaciones`). | — |
-| `/arena tprotation <nombre> <true/false>` | Activa/desactiva el teletransporte de jugadores cuando esa arena entra en rotación. | `randomkits.command.arenas.tprotation` |
-| `/arena tpworld <mundo>` | Te teletransporta a un mundo específico (útil para ir al mundo de arenas). | `randomkits.command.arenas.tpworld` |
+These commands require specific administrative permissions (usually `randomkits.admin`).
 
-### `/kit` — gestión de kits
+### ⚙️ General Administration
+* `/randomkits reload` - Reloads the plugin configuration files (`config.yml`, `language.yml`, `abilities.yml`, etc.) without restarting the server.
+* `/setspawn` - Sets the global spawn location for the `/spawn` command.
 
-| Subcomando | Descripción | Permiso |
-|---|---|---|
-| `/kit create <nombre> <tipo>` | Crea un kit (`normal`, `random` o `event`). | `randomkits.command.kits.create` |
-| `/kit edit <nombre>` | Abre el editor visual de inventario del kit. | `randomkits.command.kits.edit` |
-| `/kit setprice <nombre> <precio>` | Establece el precio de un kit (acepta decimales; -1 usa el precio global). | `randomkits.command.kits.setprice` |
-| `/kit settings <nombre>` | Abre el panel de propiedades: nombre visible, permiso, cooldown, icono, slot y sonido. | `randomkits.command.kits.settings` |
-| `/kit give <kit> <jugador>` | Entrega un kit directamente a un jugador. | `randomkits.command.kits.give` |
-| `/kit delete <nombre>` | Elimina un kit. | `randomkits.command.kits.delete` |
+### 🗺️ Arena Management (`/arena`)
+The `/arena` base command is used for all arena operations.
+* `/arena create <name>` - Creates a new empty arena profile.
+* `/arena wand` - Gives you the selection tool to set the physical boundaries.
+* `/arena setbounds <name>` - Saves your current wand selection as the boundaries for the arena. Also generates the Escape Prevention bedrock cage if enabled.
+* `/arena addspawn <name>` - Adds a new spawn point for players at your current location.
+* `/arena clearspawns <name>` - Removes all spawn points from the arena.
+* `/arena save <name>` - Saves the blocks within the boundaries as a FAWE schematic.
+* `/arena enable <name>` - Enables the arena for the automatic rotation cycle.
+* `/arena disable <name>` - Disables the arena so it won't appear in the rotation.
+* `/arena delete <name>` - Permanently deletes the arena.
+* `/arena tp <name>` - Teleports you to the arena's world for editing.
+* `/arena forcerotate` - Instantly forces the rotation to happen, skipping the timer.
 
-### `/ktk` (alias `/killtheking`)
+### 🎲 Kit Management (`/kit` / `/kits`)
+* `/kit create <name>` - Creates a new kit using your current inventory contents (armor and items).
+* `/kits admin` - Opens the Kit Editor menu to preview, edit icons, set permissions, or delete kits.
 
-| Subcomando | Descripción | Permiso |
-|---|---|---|
-| `/ktk start <jugador>` | Inicia el evento Kill The King nombrando Rey a ese jugador. | `randomkits.command.ktk.start` |
-| `/ktk stop` | Detiene el evento en curso forzosamente. | `randomkits.command.ktk.stop` |
+### 👑 King Event Management (`/king`)
+* `/king start` - Forces the "Kill The King" event to start immediately.
+* `/king stop` - Manually aborts the active King event.
 
-### `/abilities` (alias `/ability`)
+### 💰 Economy Management (`/coins`)
+* `/coins give <player> <amount>` - Gives coins to a player.
+* `/coins set <player> <amount>` - Sets a player's coin balance.
+* `/coins remove <player> <amount>` - Takes coins away from a player.
 
-| Subcomando | Descripción | Permiso |
-|---|---|---|
-| `/abilities give <jugador> <habilidad> [cantidad]` | Entrega el ítem de una habilidad. IDs válidos: `FIREBALL`, `TNT`, `GRAPPLING_HOOK`, `THOR_HAMMER`, `SPEED`, `STRENGTH`, `MEDKIT`, `SWITCH_BALL`, `WEB_SHOOTER`, `BUBBLE`, `WEB_CUTTER`, `GUILLOTINE`. | `randomkits.command.abilities.give` |
-
-### `/coins`
-
-| Subcomando | Descripción | Permiso |
-|---|---|---|
-| `/coins` | Muestra tu saldo actual. Si tienes permisos de admin, muestra la lista de comandos. | — |
-| `/coins <jugador>` | Consulta el saldo de coins de un jugador (o el tuyo propio). | `randomkits.admin.coins` |
-| `/coins add <jugador> <cantidad>` | Añade coins. | `randomkits.admin.coins` |
-| `/coins remove <jugador> <cantidad>` | Quita coins. | `randomkits.admin.coins` |
-| `/coins set <jugador> <cantidad>` | Fija el saldo exacto. | `randomkits.admin.coins` |
-
-### Otros
-
-| Comando | Descripción | Permiso |
-|---|---|---|
-| `/setspawn` | Establece el spawn global en tu posición actual. | `randomkits.admin.setspawn` |
-| `/hrk version` (alias `/heavenrandomkits`, `/rk`, `/randomkits`) | Muestra la versión y autor del plugin. | `randomkits.command.version` |
-| `/hrk reload` | Recarga `config.yml`, `language.yml` y `abilities.yml`. | `randomkits.command.reload` |
+### 🎯 Bounty Management (`/bounty`)
+* `/bounty add <player> <amount>` - Manually adds a bounty to a player's head from the console or admin.
+* `/bounty remove <player>` - Clears a player's bounty completely.

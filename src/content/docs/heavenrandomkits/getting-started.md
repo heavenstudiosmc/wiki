@@ -1,171 +1,88 @@
 ---
 title: Getting Started
+description: How to install and setup HeavenRandomKits on your server.
 ---
 
-# 🚀 Primeros pasos
+# 🚀 Getting Started
 
-Esta guía te lleva de cero a un servidor KitPvP funcional. Asume que ya completaste la [instalación](index.md) y la licencia está activa.
+Follow this guide to install HeavenRandomKits on your server, configure your license, and set up your very first arena step-by-step.
 
-## ✅ Lista de verificación
+## 📋 Prerequisites
 
-1. [Preparar el mundo de arenas](#_1-preparar-el-mundo-de-arenas)
-2. [Crear y activar tu primera arena](#_2-crear-tu-primera-arena)
-3. [Crear tus primeros kits](#_3-crear-tus-primeros-kits)
-4. [Configurar el spawn global](#_4-configurar-el-spawn-global)
-5. [Probar el flujo de juego](#_5-probar-el-flujo-de-juego)
-
----
-
-## 1. Preparar el mundo de arenas
-
-El plugin necesita un mundo **exclusivo** donde vivirán todas las arenas. Por defecto se llama `arenas`:
-
-```yaml
-# config.yml
-ARENA_SETTINGS:
-  WORLD_NAME: "arenas"
-```
-
-Puedes crear el mundo con tu gestor de mundos favorito (Multiverse, etc.) o dejar que el plugin lo gestione. El plugin incluye un generador de vacío (*void*) para este mundo, ideal para pegar mapas limpios.
-
-> 💡 Dentro del juego puedes ir al mundo de arenas con `/arena tpworld arenas`.
+Before installing the plugin, ensure your server meets the following requirements:
+* **Server Version**: Paper 1.20.1 or higher (1.20.x, 1.21.x). Spigot is not officially supported.
+* **Java Version**: Java 17 or Java 21.
+* **FastAsyncWorldEdit (FAWE)**: Required for the automatic arena loading, pasting, and rotating mechanics.
+* **PlaceholderAPI**: (Optional but highly recommended) For displaying player stats on scoreboards or chat formats.
 
 ---
 
-## 2. Crear tu primera arena
+## 📦 Installation
 
-Todos estos comandos requieren el permiso `randomkits.admin` (o ser OP). Si en algún momento olvidas el flujo, `/arena setup` te muestra esta misma guía dentro del juego.
+1. Download the `HeavenRandomKits-x.x.x.jar` file.
+2. Stop your server completely.
+3. Place the downloaded `.jar` file into your server's `plugins/` folder.
+4. Start your server.
+5. The plugin will generate a folder named `HeavenRandomKits`. Navigate to `plugins/HeavenRandomKits/config.yml`.
+6. Open `config.yml` and insert your license key in the `LICENSE:` field.
+   ```yaml
+   LICENSE: "YOUR-LICENSE-KEY-HERE"
+   ```
+7. Restart the server or run `/randomkits reload`. Check your console to ensure the license is authenticated successfully.
 
-#### Paso 1 — Registrar la arena
-
-```
-/arena create Desierto
-```
-
-#### Paso 2 — Delimitar sus bordes
-
-Pide la herramienta de selección y marca las dos esquinas del mapa:
-
-```
-/arena wand
-```
-
-- **Click izquierdo** → Posición 1
-- **Click derecho** → Posición 2
-
-Luego guarda esa selección como los límites de la arena:
-
-```
-/arena setbounds Desierto
-```
-
-#### Paso 3 — Añadir puntos de aparición
-
-Párate donde quieras que aparezcan los jugadores y ejecuta:
-
-```
-/arena addspawn Desierto
-```
-
-Repítelo en varios puntos del mapa — el plugin elegirá entre ellos aleatoriamente, lo que reduce el *spawn-kill*. (¿Te equivocaste? `/arena clearspawns Desierto` borra todos los spawns de esa arena.)
-
-#### Paso 4 — Guardar el schematic
-
-Esto guarda el terreno de la arena con FastAsyncWorldEdit, para que el plugin pueda restaurarla/pegarla en cada rotación:
-
-```
-/arena save Desierto
-```
-
-#### Paso 5 — Activarla
-
-```
-/arena enable Desierto
-```
-
-¡Listo! La arena entra en la **rotación automática**. Con una sola arena el mapa nunca cambia; crea 2 o más para que la rotación (y la votación de mapas) cobre sentido.
-
-> ⏱️ La rotación ocurre cada `ROTATION_TIME` **minutos** (por defecto: 2). Puedes forzarla en cualquier momento con `/arena forcerotate`.
+> [!NOTE]
+> If your console prints "Invalid or expired license", please double-check that you copied the exact key provided by our Discord bot.
 
 ---
 
-## 3. Crear tus primeros kits
+## 🛠️ Setting up your first Arena
 
-Los comandos de kits usan el permiso `randomkits.kit` (base) y `randomkits.kit.admin` (administración).
+HeavenRandomKits works by rotating through multiple arenas. To start playing, you need at least one fully configured arena.
 
-#### Paso 1 — Crear el kit
-
-```
-/kit create Guerrero normal
-/kit create Caotico random
-```
-
-Tipos disponibles:
-
-| Tipo | Uso |
-|---|---|
-| `NORMAL` | Kits que los jugadores eligen desde el menú (`/kits`). |
-| `RANDOM` | Entran al sorteo de kit aleatorio (al reaparecer, al entrar, o con `/kit random`). |
-| `EVENT` | Reservados para eventos — por ejemplo, el kit del Rey en Kill The King. |
-
-#### Paso 2 — Equiparlo visualmente
-
-```
-/kit edit Guerrero
-```
-
-Se abre un cofre de 54 slots donde montas el kit **arrastrando ítems**:
-
-| Slots | Contenido |
-|---|---|
-| 0 – 35 | Inventario del jugador (armas, comida, pociones…) |
-| 45 / 46 / 47 / 48 | Casco / Pechera / Pantalones / Botas |
-| 49 | Mano secundaria (escudo, tótem…) |
-| 52 🟥 | Cancelar sin guardar |
-| 53 🟩 | **Guardar** el kit |
-
-#### Paso 3 — Ajustar sus propiedades
-
-```
-/kit settings Guerrero
-```
-
-Desde este panel configuras: nombre visible (con colores `&`), permiso requerido para usarlo, cooldown, icono del menú, slot en el menú y sonido al equiparlo.
-
-> 💡 El kit `king` viene preinstalado como kit `EVENT` para el evento Kill The King.
-
----
-
-## 4. Configurar el spawn global
-
-Párate en el punto de spawn de tu lobby y ejecuta:
-
-```
+### Step 1: Set the Global Spawn
+Navigate to your main server lobby or the place where players should spawn when they join the server, and run:
+```bash
 /setspawn
 ```
+*(Permission: `randomkits.admin.setspawn`)*
 
-Luego decide en `config.yml` cuándo se teletransporta a los jugadores:
-
-```yaml
-SPAWN_SETTINGS:
-  TELEPORT_ON_JOIN: false        # cada vez que entran al servidor
-  TELEPORT_ON_FIRST_JOIN: true   # solo la primera vez
+### Step 2: Create the Arena Profile
+Create the arena data profile by running:
+```bash
+/arena create <arena_name>
 ```
+*Example:* `/arena create Desert`
+
+### Step 3: Define the Arena Bounds
+You need to define the physical area of your arena. This allows the plugin to save it as a schematic and prevents players from escaping (if `ESCAPE_PREVENTION` is enabled).
+1. Run `/arena wand` to receive the selection tool (an axe).
+2. Left-click one corner of your arena, and Right-click the opposite corner (just like WorldEdit).
+3. Once selected, run:
+```bash
+/arena setbounds <arena_name>
+```
+
+### Step 4: Add Spawn Points
+Players need locations to spawn inside the arena. You can add as many as you want (we recommend at least 10 for a good flow).
+Stand in a spot where you want players to spawn and run:
+```bash
+/arena addspawn <arena_name>
+```
+Repeat this step across different locations in your arena.
+
+### Step 5: Save and Enable
+Once you've set the bounds and added all spawn points, it's time to save the arena structure into a schematic and enable it for rotation.
+
+1. Run `/arena save <arena_name>` (This will capture all blocks inside the bounds using FAWE).
+2. Run `/arena enable <arena_name>` to make the arena active and ready for the rotation cycle.
+
+> [!TIP]
+> You can repeat Steps 2-5 to create as many arenas as you like. The plugin will automatically add them to the rotation pool and voting menus!
 
 ---
 
-## 5. Probar el flujo de juego
+## 🎉 You're all set!
 
-Con todo configurado, entra como jugador normal y prueba:
+Your players can now use `/join` or `/arena join` to enter the battle. When they die, they will automatically respawn with a brand new random kit.
 
-1. `/join` — te lleva a la arena activa.
-2. `/kits` — abre el menú de selección de kits.
-3. `/kit random` — recibe un kit aleatorio (cuesta `MANUAL_PRICE` coins, por defecto 100; las entregas automáticas son gratis).
-4. `/votaciones` — vota por el siguiente mapa.
-5. Mata a otro jugador — deberías recibir coins (`KILL_REWARDS`) y ver el contador StatTrak en tu espada.
-
-Si algo no funciona, revisa la consola al arrancar: el plugin reporta ahí los problemas de licencia, mundo de arenas o configuración. Después de editar cualquier archivo YAML, aplica los cambios con:
-
-```
-/hrk reload
-```
+Check the [Configuration](/wiki/heavenrandomkits/configuration/) page to learn how to customize kits, coin multipliers, and other settings.
