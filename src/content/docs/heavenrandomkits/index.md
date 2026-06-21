@@ -52,7 +52,7 @@ title: Overview
    - Owner: <tu_usuario> | Ips: 1/3
    ```
    > ⚠️ Si la licencia es inválida, el plugin se desactiva automáticamente.
-6. Continúa con la guía de [Primeros pasos](heavenrandomkits/primeros-pasos.md) para configurar tu primera arena y tus kits.
+6. Continúa con la guía de [Primeros pasos](getting-started.md) para configurar tu primera arena y tus kits.
 
 ---
 
@@ -60,7 +60,7 @@ title: Overview
 
 | Archivo | Propósito |
 |---|---|
-| `config.yml` | Configuración general: arenas, kits automáticos, killstreaks, bounties, evento King, StatTrak… Ver [Configuración](heavenrandomkits/configuracion.md). |
+| `config.yml` | Configuración general: arenas, kits automáticos, killstreaks, bounties, evento King, StatTrak… Ver [Configuración](configuration.md). |
 | `language.yml` | **Todos** los mensajes, menús y textos del plugin. 100% traducible, con códigos de color `&`. |
 | `abilities.yml` | Las 12 habilidades especiales: ítem, cooldown, sonidos y parámetros de cada una. |
 | `database/kits/*.json` | Cada kit se guarda como un archivo JSON individual (ej. `king.json`). |
@@ -71,9 +71,9 @@ title: Overview
 
 | Página | Contenido |
 |---|---|
-| [Primeros pasos](heavenrandomkits/primeros-pasos.md) | Configura tu primera arena y tus primeros kits en 10 minutos |
-| [Comandos](heavenrandomkits/comandos.md) | Referencia completa de comandos de jugador y administración |
-| [Permisos](heavenrandomkits/permisos.md) | Todos los nodos de permisos del plugin |
-| [Placeholders](heavenrandomkits/placeholders.md) | Los 18 placeholders de PlaceholderAPI |
-| [Sistemas](heavenrandomkits/sistemas.md) | Cómo funciona cada sistema en detalle |
-| [Configuración](heavenrandomkits/configuracion.md) | Referencia de `config.yml`, `abilities.yml` y `language.yml` |
+| [Primeros pasos](getting-started.md) | Configura tu primera arena y tus primeros kits en 10 minutos |
+| [Comandos](commands.md) | Referencia completa de comandos de jugador y administración |
+| [Permisos](permissions.md) | Todos los nodos de permisos del plugin |
+| [Placeholders](placeholders.md) | Los 18 placeholders de PlaceholderAPI |
+| [Sistemas](systems.md) | Cómo funciona cada sistema en detalle |
+| [Configuración](configuration.md) | Referencia de `config.yml`, `abilities.yml` y `language.yml` |

@@ -31,7 +31,7 @@ Las arenas viven en un mundo dedicado (`ARENA_SETTINGS.WORLD_NAME`, por defecto 
 
 El ciclo de rotación, cada `ROTATION_TIME` minutos:
 
-1. El plugin elige la siguiente arena — **gana la más votada**; los votos VIP pesan más (ver [Permisos](heavenrandomkits/permisos.md)).
+1. El plugin elige la siguiente arena — **gana la más votada**; los votos VIP pesan más (ver [Permisos](permissions.md)).
 2. Pega el schematic de la arena (mapa fresco, sin grietas de la ronda anterior).
 3. Teletransporta a los jugadores a los spawns de la nueva arena (configurable por arena con `/arena tprotation`).
 4. Anuncia el cambio con un título en pantalla (`ROTATION_TITLES_ENABLED`).

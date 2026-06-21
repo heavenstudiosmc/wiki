@@ -4,7 +4,7 @@ title: Getting Started
 
 # 🚀 Primeros pasos
 
-Esta guía te lleva de cero a un servidor KitPvP funcional. Asume que ya completaste la [instalación](heavenrandomkits/) y la licencia está activa.
+Esta guía te lleva de cero a un servidor KitPvP funcional. Asume que ya completaste la [instalación](index.md) y la licencia está activa.
 
 ## ✅ Lista de verificación
 
